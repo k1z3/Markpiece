@@ -23,4 +23,3 @@ export class Piece {
         this.index = 0;
     }
 }
-//# sourceMappingURL=piece.js.map

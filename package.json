@@ -1,8 +1,12 @@
 {
   "name": "markpiece",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Customizable Markdown Parser",
-  "main": "dist/parser.js",
+  "main": "src/index.ts",
+  "files": [
+    "src/index.ts",
+    "dist/"
+  ],
   "scripts": {
     "test": "ava -v"
   },
@@ -13,7 +17,8 @@
   "keywords": [
     "markdown",
     "customize",
-    "parser"
+    "parser",
+    "markiece"
   ],
   "author": "koizumi <pkizumi.sigma@gmail.com> (https://folklore.icu/)",
   "license": "MIT",

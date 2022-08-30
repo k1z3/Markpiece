@@ -4720,4 +4720,3 @@ export const emoji = {
     "male_zombie": { "content": "🧟‍♂️", "type": "str" },
     "zzz": { "content": "💤", "type": "str" },
 };
-//# sourceMappingURL=emoji.js.map
