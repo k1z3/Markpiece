@@ -12,23 +12,21 @@
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
+    "declaration": true,
     "strictNullChecks": false,
-    "noEmit": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "@/*": [
-        "./*"
-      ]
-    },
+    "rootDir": "./src",
+    "outDir": "./dist",
   },
+  "files": [
+    "./src/parser.ts",
+  ],
+  "include": [
+    "./src/**/*"
+  ],
   "exclude": [
+    "dist",
     "node_modules",
-    ".nuxt",
-    "dist"
   ]
 }

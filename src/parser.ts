@@ -271,7 +271,7 @@ export class MpParser {
 
     let result = this.standard_apply_piece(list);
   
-    result = result.replaceAll("\t", "");
+    result = result.replace(/\t/g, "");
 
     // TODO: script記述の削除の有無を設定する
     result = result.replace(/<script[\s\S]*<\/script>/, "");

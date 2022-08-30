@@ -2,7 +2,7 @@
   "name": "markpiece",
   "version": "0.1.0",
   "description": "Customizable Markdown Parser",
-  "main": "src/parser.ts",
+  "main": "dist/parser.js",
   "scripts": {
     "test": "ava -v"
   },
@@ -22,6 +22,7 @@
   },
   "homepage": "https://folklore.icu/markpiece",
   "dependencies": {
+    "tsc": "^2.0.4",
     "typescript": "^4.8.2"
   }
 }
