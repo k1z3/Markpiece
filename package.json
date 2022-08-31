@@ -2,7 +2,7 @@
   "name": "markpiece",
   "version": "0.1.1",
   "description": "Customizable Markdown Parser",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "files": [
     "src/index.ts",
     "dist/"
