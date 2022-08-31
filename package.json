@@ -1,0 +1,33 @@
+{
+  "name": "markpiece",
+  "version": "0.1.2",
+  "description": "Customizable Markdown Parser",
+  "main": "dist/index.js",
+  "files": [
+    "src/index.ts",
+    "dist/"
+  ],
+  "scripts": {
+    "test": "ava -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k1z3/Markpiece.git"
+  },
+  "keywords": [
+    "markdown",
+    "customize",
+    "parser",
+    "markpiece"
+  ],
+  "author": "koizumi <pkizumi.sigma@gmail.com> (https://folklore.icu/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/k1z3/Markpiece/issues"
+  },
+  "homepage": "https://folklore.icu/markpiece",
+  "dependencies": {
+    "tsc": "^2.0.4",
+    "typescript": "^4.8.2"
+  }
+}
