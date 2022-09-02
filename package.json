@@ -18,6 +18,8 @@
     "markdown",
     "customize",
     "parser",
+    "front-end",
+    "documentation",
     "markpiece"
   ],
   "author": "koizumi <pkizumi.sigma@gmail.com> (https://folklore.icu/)",
