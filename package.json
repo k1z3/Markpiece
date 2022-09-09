@@ -1,6 +1,6 @@
 {
   "name": "markpiece",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Customizable Markdown Parser",
   "main": "dist/index.js",
   "files": [
@@ -8,6 +8,7 @@
     "dist/"
   ],
   "scripts": {
+    "generate": "tsc",
     "test": "ava -v"
   },
   "repository": {
@@ -18,6 +19,8 @@
     "markdown",
     "customize",
     "parser",
+    "front-end",
+    "documentation",
     "markpiece"
   ],
   "author": "koizumi <pkizumi.sigma@gmail.com> (https://folklore.icu/)",

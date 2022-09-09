@@ -567,7 +567,7 @@ export class MpParser {
         this.alink = (match) => {
             let search = match[0].match(/\[.+?\]\(.+?\)/)[0];
             let tag = search.match(/\[.+?\]/)[0];
-            let href = search.match(/\(.+?\)/)[0];
+            let href = search.replace(tag, '').match(/\(.+?\)/)[0];
             let result = `<a href='${href.slice(1, href.length - 1)}'>${tag.slice(1, tag.length - 1)}</a>`;
             return result;
         };

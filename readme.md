@@ -1,7 +1,7 @@
 Markpiece :cheese:
 ==================
 
-> Customizable Markdown Parser
+***Customizable Markdown Parser***
 
 
 Install
@@ -42,3 +42,4 @@ Reference
 Click below for detailed instructions (e.g. customization).
 
 [Reference (English)](https://folklore.icu/markpiece/ref/en/)
+[Reference (日本語)](https://folklore.icu/markpiece/ref/)
