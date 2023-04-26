@@ -1,4 +1,4 @@
-
+// refs. https://github.com/kyokomi/emoji
 
 export const emoji: {[index: string]: { content: string, type: string }} = {
   "+1" : { "content" : "👍", "type" : "str" },
