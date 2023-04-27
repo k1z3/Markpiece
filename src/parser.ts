@@ -271,7 +271,7 @@ export class MpParser {
 
     let result = this.standard_apply_piece(list);
   
-    result = result.replace(/\t/g, "");
+    result = result.replaceAll("\t", "");
 
     // TODO: script記述の削除の有無を設定する
     result = result.replace(/<script[\s\S]*<\/script>/, "");
@@ -340,7 +340,7 @@ export class MpParser {
       this.piece_universal_priority.forEach(el => {
         if(!flag && (matchtype & el.type)) {
           /* matchを探索する */
-          let match = match_univ_priority.toString().match(el.regex[0]);
+          let match = match_univ_priority[0].match(el.regex[0]);
           if(match) { result = el; flag = true; }
         }
       })
@@ -352,11 +352,13 @@ export class MpParser {
       this.piece_universal.forEach(el => {
         if(!flag && (matchtype & el.type)) {
           /* matchを探索する */
-          let match = match_univ.toString().match(el.regex[0]);
+          let match = match_univ[0].match(el.regex[0]);
           if(match) { result = el; flag = true; }
         }
       })
     }
+    
+    
 
     return result;
   }
@@ -893,7 +895,7 @@ export class MpParser {
   private alink = (match: string[]): string => {
     let search = match[0].match(/\[.+?\]\(.+?\)/)[0];
     let tag = search.match(/\[.+?\]/)[0];
-    let href = search.replace(tag, '').match(/\(.+?\)/)[0];
+    let href = search.match(/\(.+?\)/)[0];
 
     let result = `<a href='${href.slice(1, href.length - 1)}'>${tag.slice(1, tag.length - 1)}</a>`;
 
