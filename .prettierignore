@@ -3,3 +3,5 @@
 
 !src/**/*.ts
 !test/**/*.ts
+
+test/name.ts
