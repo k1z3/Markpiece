@@ -65,7 +65,7 @@ export class MpParser {
     this.add_piece('emoji', [/::?[0-9a-zA-Z_\-+]+?::?/], this.emoji, MatchType.UNIVERSAL) // emoji
     this.add_piece('img', [/!\[.+?\]\(.+?\)/], this.image, MatchType.UNIVERSAL) // imgタグ
     this.add_piece('anker', [/\[.+?\]\(.+?\)/], this.anker, MatchType.UNIVERSAL) // aタグ
-    this.add_piece('bold', [/(\*\*+.+?(\*\*|\*\*\*))|(__+.+?__|___)/], this.bold, MatchType.UNIVERSAL) // bタグ
+    this.add_piece('bold', [/(\*\*+.+?(\*\*\*|\*\*))|(__+.+?(___|__))/], this.bold, MatchType.UNIVERSAL) // bタグ
     this.add_piece('s', [/~~.+?~~/], this.strikethrough, MatchType.UNIVERSAL) // sタグ
     this.add_piece('ins', [/\+\+.+?\+\+/], this.insert, MatchType.UNIVERSAL) // insタグ
     this.add_piece('mark', [/==.+?==/], this.mark, MatchType.UNIVERSAL) // markタグ
@@ -934,8 +934,12 @@ export class MpParser {
     // シンボルの取得
     const char = match[0].slice(0, 1)
 
+    // 前後のシンボルを除いた内部の取得
+    const target = match[0].match(/^(\*+|_+)(?<content>.+?)(\*+|_+)$/)
+
+    // 後方に3つシンボルが重なる場合
     if (match[0].match(/\*\*\*$|___$/)) {
-      if (match[0].slice(1, match[0].length - 3).match(new RegExp(`\\${char}`))) {
+      if (target.groups.content.match(new RegExp(`\\${char}`))) {
         // 内部にアスタリスクがあれば、アスタリスクを中に入れる
         result = `<i>${match[0].slice(1, match[0].length - 3)}${char}${char}</i>`
       } else {
@@ -954,21 +958,25 @@ export class MpParser {
     // シンボルの取得
     const char = match[0].slice(0, 1)
 
+    // 前後のシンボルを除いた内部の取得
+    const target = match[0].match(/^(\*|_)+(?<content>.+?)(\*|_)+$/)
+
     // 前半3つにアスタリスクまたはハイフンがある場合
-    if (match[0].match(/^\*\*\*.+|^___.+/)) {
-      if (result.slice(3, match[0].length - 3).match(new RegExp(`\\${char}`))) {
+    if (match[0].match(/^(\*\*\*|___).+$/)) {
+      if (target.groups.content.match(new RegExp(`\\${char}`))) {
         // 内部にアスタリスクがあれば、アスタリスクを中に入れる
         result = `<b>${char}${result.slice(3, result.length)}`
       } else {
         result = `${char}<b>${result.slice(3, result.length)}`
       }
+      // console.info(match[0], target.groups.content, result)
     } else {
       result = `<b>${result.slice(2, result.length)}`
     }
 
     // 後半3つにアスタリスクまたはハイフンがある場合
-    if (match[0].match(/.+\*\*\*$|.+___$/)) {
-      if (result.slice(0, result.length - 3).match(new RegExp(`\\${char}`))) {
+    if (match[0].match(/^.+(\*\*\*|___)$/)) {
+      if (target.groups.content.match(new RegExp(`\\${char}`))) {
         // 内部にアスタリスクがあれば、アスタリスクを中に入れる
         result = `${result.slice(0, result.length - 3)}${char}</b>`
       } else {
