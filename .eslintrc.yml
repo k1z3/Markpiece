@@ -8,39 +8,39 @@ extends:
   - eslint:recommended
   - plugin:@typescript-eslint/recommended
   - eslint-config-prettier
-parser: "@typescript-eslint/parser"
+parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
 globals:
   NodeJS: true
 plugins:
-  - "@typescript-eslint"
+  - '@typescript-eslint'
 rules:
   no-undef:
     - error
   quotes:
-    - warn
+    - off
     - single
   no-constant-condition:
     - warn
   prefer-const:
     - warn
-  "@typescript-eslint/ban-types":
+  '@typescript-eslint/ban-types':
     - off
-  "@typescript-eslint/no-var-requires":
+  '@typescript-eslint/no-var-requires':
     - warn
-  "@typescript-eslint/no-inferrable-types":
+  '@typescript-eslint/no-inferrable-types':
     - off
-  "@typescript-eslint/no-unused-vars":
+  '@typescript-eslint/no-unused-vars':
     - warn
-    - argsIgnorePattern: "^_$"
-  "@typescript-eslint/no-non-null-assertion":
+    - argsIgnorePattern: '^_$'
+  '@typescript-eslint/no-non-null-assertion':
     - off
-  "@typescript-eslint/no-unnecessary-type-constraint":
+  '@typescript-eslint/no-unnecessary-type-constraint':
     - off
-  "@typescript-eslint/no-explicit-any":
+  '@typescript-eslint/no-explicit-any':
     - off
 settings:
   react:
-    version: "detect"
+    version: 'detect'
